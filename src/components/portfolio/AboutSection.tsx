@@ -15,15 +15,13 @@ const AboutSection = () => {
               Building the Future with Data & Code
             </h3>
             <p className="text-gray-600 leading-relaxed">
-              I'm a passionate developer and data engineer with hands-on experience in machine learning, 
-              web development, and data processing. Currently pursuing my degree while actively 
-              contributing to various projects and organizations.
+              I'm a driven developer and data engineer with hands-on experience in machine learning, web development, and data processing. 
+              While pursuing my degree in Computer Science with a specialization in AI & ML, I actively lead and contribute to technical and leadership roles across multiple clubs and real-world projects. From building smart assistive tech like Eyevoce to working on AI-based legal systems,
+               I’m passionate about creating solutions that blend innovation with impact.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              My journey includes a Data Engineer Internship at Ambitio, leadership roles in multiple 
-              student organizations, and developing projects spanning from web applications to 
-              machine learning models. I believe in continuous learning and applying cutting-edge 
-              technologies to solve real-world problems.
+             My journey’s been a ride — from interning as a Data Engineer at Ambitio to leading multiple student orgs and building everything from slick web apps to smart ML models. 
+             I’m all about learning on the go and using the latest tech to solve real-world stuff that actually matters.
             </p>
             <div className="grid grid-cols-2 gap-4 pt-4">
               <div className="text-center p-4 bg-blue-50 rounded-lg">
