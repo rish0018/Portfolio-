@@ -45,7 +45,7 @@ const ProjectsSection = () => {
       githubUrl: "https://github.com/rish0018/Portfolio-",
       demoUrl: "https://your-portfolio.com",
       category: "Web Development"
-    }
+    },
     {
       title: "DSA",
       description: "Data Structure and Algorithms using Java",
