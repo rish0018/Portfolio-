@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Github, Linkedin } from "lucide-react";
 import { toast } from "../../hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -18,32 +19,42 @@ const ContactSection = () => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Error",
-        description: "Please fill in all required fields",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    // Add your form submission logic here
+  e.preventDefault();
+
+  if (!formData.name || !formData.email || !formData.message) {
+    toast({
+      title: "Error",
+      description: "Please fill in all required fields",
+      variant: "destructive"
+    });
+    return;
+  }
+
+  emailjs.send(
+    "service_y5uejwo",            // Your Service ID
+    "template_zudlaqh",  // Your Template ID
+    formData,                     // Form data must match template variables
+    "Nma3nJqH13GnxzCBK"        // Your EmailJS Public Key
+  ).then(() => {
     toast({
       title: "Success",
       description: "Your message has been sent!",
     });
-    
-    // Reset form
     setFormData({
       name: "",
       email: "",
       subject: "",
       message: ""
     });
-  };
+  }).catch((error) => {
+    toast({
+      title: "Failed to send",
+      description: "Please try again later.",
+      variant: "destructive"
+    });
+    console.error("EmailJS Error:", error);
+  });
+};
 
   return (
     <section id="contact" className="py-16 bg-gray-50">
