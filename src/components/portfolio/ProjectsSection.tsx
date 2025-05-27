@@ -4,38 +4,36 @@ import { Github } from 'lucide-react';
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "E-Commerce Website",
-      description: "A fully responsive e-commerce platform built with HTML, CSS, and JavaScript featuring product catalog, shopping cart, and user authentication.",
-      techStack: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-      githubUrl: "https://github.com/yourusername/ecommerce-project",
-      demoUrl: "https://your-demo-link.com",
+      title: "Chrome Games",
+      description: "A new outlook to the classic flappy bird and dinasuar game using tensorflow integration to handle everything without keyboard",
+      techStack: ["HTML", "CSS", "JavaScript", "Tensorflow"],
+      githubUrl: "https://github.com/rish0018/Chrome-Games",
       category: "Web Development"
     },
     {
-      title: "Movie Recommendation System",
-      description: "Machine learning project that recommends movies based on user preferences using collaborative filtering and content-based algorithms.",
+      title: "ML Projects",
+      description: "Includes over 30+ Projects",
       techStack: ["Python", "Pandas", "Scikit-learn", "Flask", "Machine Learning"],
-      githubUrl: "https://github.com/yourusername/movie-recommendation",
+      githubUrl: "https://github.com/rish0018/AI_ML-projects",
       category: "Machine Learning"
     },
     {
-      title: "Task Management Dashboard",
-      description: "Interactive dashboard for project management with drag-and-drop functionality, real-time updates, and team collaboration features.",
+      title: "Web-Apps",
+      description: "Interactive apps to showcase skills in frontend development",
       techStack: ["JavaScript", "HTML", "CSS", "Local Storage", "Responsive Design"],
       githubUrl: "https://github.com/yourusername/task-dashboard",
-      demoUrl: "https://your-demo-link.com",
       category: "Web Development"
     },
     {
       title: "Chatbot with OpenAI",
       description: "Intelligent chatbot powered by OpenAI APIs and LangChain for natural language processing and conversation management.",
       techStack: ["Python", "OpenAI API", "LangChain", "Streamlit", "NLP"],
-      githubUrl: "https://github.com/yourusername/ai-chatbot",
+      githubUrl: "https://github.com/rish0018/Chatbot_Langchaint",
       category: "AI/ML"
     },
     {
       title: "Data Analysis Dashboard",
-      description: "Interactive data visualization dashboard built with Python for analyzing and presenting complex datasets with beautiful charts.",
+      description: "Codes made with Playwright, Selenium and BeautifulSoup",
       techStack: ["Python", "Pandas", "Matplotlib", "Plotly", "Streamlit"],
       githubUrl: "https://github.com/yourusername/data-dashboard",
       category: "Data Engineering"
@@ -43,10 +41,17 @@ const ProjectsSection = () => {
     {
       title: "Portfolio Website",
       description: "Personal portfolio website showcasing projects and skills with modern design and smooth animations.",
-      techStack: ["HTML", "CSS", "JavaScript", "Responsive Design", "Animations"],
-      githubUrl: "https://github.com/yourusername/portfolio",
+      techStack: ["React","MERN", "Responsive Design", "Animations"],
+      githubUrl: "https://github.com/rish0018/Portfolio-",
       demoUrl: "https://your-portfolio.com",
       category: "Web Development"
+    }
+    {
+      title: "DSA",
+      description: "Data Structure and Algorithms using Java",
+      techStack: ["JAVA","DSA"],
+      githubUrl: "https://github.com/rish0018/Basic-DSA-Codes",
+      category: "All"
     }
   ];
 
