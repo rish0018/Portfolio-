@@ -1,4 +1,5 @@
-import React from 'react';
+
+
 // These paths should be relative to the current file
 import HeroSection from '../components/portfolio/HeroSection';
 import AboutSection from '../components/portfolio/AboutSection';

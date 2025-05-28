@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+
 import { Github } from 'lucide-react';
 
 const ProjectsSection = () => {
@@ -45,13 +46,6 @@ const ProjectsSection = () => {
       githubUrl: "https://github.com/rish0018/Portfolio-",
       demoUrl: "https://your-portfolio.com",
       category: "Web Development"
-    },
-    {
-      title: "DSA",
-      description: "Data Structure and Algorithms using Java",
-      techStack: ["JAVA","DSA"],
-      githubUrl: "https://github.com/rish0018/Basic-DSA-Codes",
-      category: ""
     }
   ];
 
