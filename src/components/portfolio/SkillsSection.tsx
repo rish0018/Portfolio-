@@ -30,9 +30,10 @@ const SkillsSection = () => {
   const certifications = [
     "IBM AI Engineering Certification",
     "MATLAB Certified",
-    "AWS ML (Intended)",
+    "AWS ML",
     "Accenture North America Coding Simulation",
-    "10 Days 10 Projects (Frontend)"
+    "MERN Stack ~ Blackbucks",
+    "Quantum Computing ~VIT-AP"
   ];
 
   return (
