@@ -405,7 +405,17 @@
 .animate-grid-move-x {
   animation: grid-move-x 20s linear infinite;
 }
+/* Override potential vertical lines */
+*:after, *:before {
+  border-right: none !important;
+  border-left: none !important;
+  background: transparent !important;
+}
 
+/* Target potential divider elements */
+.divider, [class*="divider"], [class*="separator"], [class*="line"] {
+  display: none !important;
+}
 .animate-grid-move-y {
   animation: grid-move-y 25s linear infinite;
 }
