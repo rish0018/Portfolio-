@@ -83,6 +83,29 @@ public/                       Static assets, resume PDF
 
 To update the site's content, edit `src/data/portfolio.ts`. To replace the resume, overwrite `public/Rishit_Kohli_Resume.pdf`.
 
+## Writing a blog post
+
+Posts are markdown files in the repo. There is no CMS and no database.
+
+1. Create a draft: `npm run new-post "My post title"`. This makes `content/drafts/YYYY-MM-DD-my-post-title.md`.
+2. Write it. The top of the file (front matter) looks like this:
+
+   ```md
+   ---
+   title: "My post title"
+   date: 2026-11-02
+   summary: One sentence that shows on the card.
+   tags: [learning, react]
+   cover: /blog/my-cover.png   # optional; omit for generated artwork
+   ---
+   ```
+
+   `title` and `date` are required. The rest is optional. Use `##` and `###` headings; they build the "on this page" menu. Images go in `public/` and are referenced like `/blog/pic.png`.
+3. Preview it with `npm run dev`. Drafts show up on `/blog` in dev only, marked "draft".
+4. Publish: move the file from `content/drafts/` to `content/blog/`, commit, and push. Netlify redeploys and the post goes live. The issue number ("week N") and the weekly streak update themselves.
+
+Drafts are never included in a production build, so unpublished writing cannot leak.
+
 ## Deployment
 
 Build with `npm run build` and deploy the `dist/` folder to any static host (Vercel, Netlify, GitHub Pages). Add the three `VITE_EMAILJS_*` variables in your host's environment settings, since `.env` is not deployed.

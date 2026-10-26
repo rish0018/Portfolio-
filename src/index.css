@@ -141,3 +141,16 @@ h1, h2, h3, h4 {
     scroll-behavior: auto !important;
   }
 }
+
+/* ---- Blog code highlighting (highlight.js classes, palette colors) ---- */
+.hljs { color: #f3e4d1; background: transparent; }
+.hljs-comment, .hljs-quote { color: #877a68; font-style: italic; }
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-built_in { color: #e8823c; }
+.hljs-string, .hljs-regexp, .hljs-addition { color: #8ab8ae; }
+.hljs-number, .hljs-symbol, .hljs-bullet { color: #d9aa78; }
+.hljs-title, .hljs-section, .hljs-function .hljs-title { color: #5fa89c; }
+.hljs-attr, .hljs-attribute, .hljs-variable, .hljs-template-variable { color: #f3e4d1; }
+.hljs-type, .hljs-class .hljs-title { color: #8ab8ae; }
+.hljs-meta, .hljs-deletion { color: #c25b52; }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 600; }

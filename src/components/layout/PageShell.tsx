@@ -1,19 +1,26 @@
+import { Suspense } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Briefcase, FolderKanban, Home, Mail, Wrench } from "lucide-react";
+import { BookOpen, Briefcase, FolderKanban, Home, Mail, Wrench } from "lucide-react";
 import { Outlet, useLocation, useNavigate, Link } from "react-router-dom";
 import { Dock, DockIcon, DockItem, DockLabel } from "../ui-kit/Dock";
 import { TargetCursor } from "../ui-kit/TargetCursor";
 import ScrollProgress from "./ScrollProgress";
 import { cn } from "../../lib/utils";
 import { profile } from "../../data/portfolio";
+import { isNewPost, posts } from "../../lib/blog";
 
 const NAV = [
   { path: "/", label: "Home", icon: Home },
+  { path: "/blog", label: "Blog", icon: BookOpen },
   { path: "/work", label: "Work", icon: Briefcase },
   { path: "/projects", label: "Projects", icon: FolderKanban },
   { path: "/skills", label: "Skills", icon: Wrench },
   { path: "/contact", label: "Contact", icon: Mail },
 ] as const;
+
+// Drafts (dev only) never count, so the dot only ever reflects a real published post.
+const latestPublished = posts.find((p) => !p.draft);
+const HAS_NEW_POST = latestPublished ? isNewPost(latestPublished) : false;
 
 export default function PageShell() {
   const location = useLocation();
@@ -54,7 +61,9 @@ export default function PageShell() {
             exit={reduceMotion ? undefined : { opacity: 0, y: -10 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
           >
-            <Outlet />
+            <Suspense fallback={null}>
+              <Outlet />
+            </Suspense>
           </motion.div>
         </AnimatePresence>
       </main>
@@ -62,17 +71,24 @@ export default function PageShell() {
       <nav aria-label="Primary" className="fixed inset-x-0 bottom-4 z-40 flex justify-center">
         <Dock panelHeight={64} magnification={72}>
           {NAV.map(({ path, label, icon: Icon }) => {
-            const active = location.pathname === path;
+            const active = path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
+            const showNew = path === "/blog" && HAS_NEW_POST;
             return (
               <DockItem key={path} onClick={() => navigate(path)} className="cursor-target">
-                <DockLabel>{label}</DockLabel>
+                <DockLabel>{showNew ? "Blog (new post)" : label}</DockLabel>
                 <DockIcon
                   className={cn(
-                    "rounded-xl border",
+                    "relative rounded-xl border",
                     active ? "border-ember/60 bg-ember/15 text-ember" : "border-ink-600 bg-ink-700 text-cream"
                   )}
                 >
                   <Icon className="h-1/2 w-1/2" aria-label={label} />
+                  {showNew && (
+                    <span
+                      aria-hidden="true"
+                      className="absolute -right-1 -top-1 h-3 w-3 rounded-full border-2 border-ink-800 bg-ember"
+                    />
+                  )}
                 </DockIcon>
               </DockItem>
             );

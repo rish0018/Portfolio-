@@ -2,6 +2,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SnakeSection } from "../components/home/SnakeSection";
+import { FeaturedPost } from "../components/blog/FeaturedPost";
+import { posts } from "../lib/blog";
 import { MacWindow } from "../components/ui-kit/MacWindow";
 import { PhoneFrame } from "../components/ui-kit/PhoneFrame";
 import { experience, profile, projects, skillGroups } from "../data/portfolio";
@@ -14,6 +16,13 @@ const TERMINAL: { cmd: string; out: string }[] = [
 ];
 
 const LAUNCHERS = [
+  {
+    to: "/blog",
+    index: "05",
+    title: "Blog",
+    body: posts[0] ? `Latest: ${posts[0].title}` : "A new post every week",
+    span: "sm:col-span-2",
+  },
   { to: "/work", index: "01", title: "Work", body: `${experience.length} roles, incl. ${experience[0].org}`, span: "sm:col-span-1" },
   {
     to: "/projects",
@@ -23,7 +32,7 @@ const LAUNCHERS = [
     span: "sm:col-span-2",
   },
   { to: "/skills", index: "03", title: "Skills", body: `${skillGroups.length} areas, 3 certifications`, span: "sm:col-span-1" },
-  { to: "/contact", index: "04", title: "Contact", body: "Say hi, I reply fast", span: "sm:col-span-1" },
+  { to: "/contact", index: "04", title: "Contact", body: "Say hi, I reply fast", span: "sm:col-span-2" },
 ];
 
 export default function Home() {
@@ -118,6 +127,12 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {posts[0] && (
+        <section aria-label="Latest blog post" className="mt-20">
+          <FeaturedPost post={posts[0]} label="from the blog" />
+        </section>
+      )}
 
       <SnakeSection />
 
