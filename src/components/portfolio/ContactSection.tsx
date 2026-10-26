@@ -11,13 +11,18 @@ const Contact = () => {
 
     if (!form.current) return;
 
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("EmailJS env vars missing. See .env.example.");
+      alert("Contact form is not configured.");
+      return;
+    }
+
     emailjs
-      .sendForm(
-        "service_y5uejwo", // Your EmailJS service ID
-        "template_006mnjm", // Your EmailJS template ID
-        form.current,
-        "Nma3nJqH13GnxzCBK" // Your EmailJS public key
-      )
+      .sendForm(serviceId, templateId, form.current, publicKey)
       .then(() => {
         alert("Email sent successfully!");
         form.current?.reset();

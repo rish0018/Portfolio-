@@ -1,54 +1,84 @@
-# React + TypeScript + Vite
+# Rishit Kohli — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website for Rishit Kohli: CS undergraduate (AI & ML) at VIT-AP, Software and Mobile Developer. It showcases experience, skills, projects and a working contact form.
 
-Currently, two official plugins are available:
+Live: https://github.com/rish0018/Portfolio-
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React 19 + TypeScript
+- Vite 6
+- Tailwind CSS 4
+- Radix UI / shadcn-style components (`src/components/ui`)
+- React Router 7
+- EmailJS (contact form)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Prerequisites
+
+- Node.js 20 or newer
+- npm (ships with Node)
+
+### 1. Install
+
+```bash
+git clone https://github.com/rish0018/Portfolio-.git
+cd Portfolio-
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Configure environment variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The contact form sends email through [EmailJS](https://www.emailjs.com/). Copy the example file and fill in your own values:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+cp .env.example .env      # Windows PowerShell: Copy-Item .env.example .env
 ```
+
+| Variable | Where to find it |
+|---|---|
+| `VITE_EMAILJS_SERVICE_ID` | EmailJS dashboard → Email Services |
+| `VITE_EMAILJS_TEMPLATE_ID` | EmailJS dashboard → Email Templates |
+| `VITE_EMAILJS_PUBLIC_KEY` | EmailJS dashboard → Account → API Keys |
+
+The template should use the form fields `name`, `email`, `subject` and `message`.
+
+If these are missing, the site still runs, but submitting the contact form shows "Contact form is not configured".
+
+> `.env` is gitignored — never commit it. Note that `VITE_*` values are bundled into the browser build, so they are visible to anyone using the site. In the EmailJS dashboard, restrict allowed domains to your site and set a monthly send limit.
+
+### 3. Run
+
+```bash
+npm run dev
+```
+
+Open the URL Vite prints (usually http://localhost:5173).
+
+## Scripts
+
+| Command | What it does |
+|---|---|
+| `npm run dev` | Start the dev server with hot reload |
+| `npm run build` | Type-check and create a production build in `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Run ESLint |
+
+## Project Structure
+
+```
+src/
+  main.tsx                    App bootstrap
+  App.tsx                     Routes: / → Index, * → NotFound
+  pages/                      Index (home), NotFound
+  components/portfolio/       Page sections: Hero, About, Experience,
+                              Skills, Projects, Contact, Navigation
+  components/ui/              Shared UI primitives
+  hooks/, lib/, types/        Helpers and typings
+public/                       Static assets
+```
+
+## Deployment
+
+Build with `npm run build` and deploy the `dist/` folder to any static host (Vercel, Netlify, GitHub Pages). Add the three `VITE_EMAILJS_*` variables in your host's environment settings, since `.env` is not deployed.
