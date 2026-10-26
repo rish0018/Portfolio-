@@ -10,7 +10,8 @@ export const profile = {
   links: {
     github: "https://github.com/rish0018",
     linkedin: "https://www.linkedin.com/in/rishit-kohli-805383282/",
-    leetcode: "",
+    leetcode: "https://leetcode.com/u/okayrishit/",
+    site: "https://rishit-portfolio18.netlify.app/",
     resume: "/Rishit_Kohli_Resume.pdf",
   },
 } as const;
@@ -52,7 +53,7 @@ export const experience: Experience[] = [
   },
   {
     title: "Student Head",
-    org: "IIEC — Innovation Incubation Entrepreneurship Cell",
+    org: "IIEC (Innovation Incubation Entrepreneurship Cell)",
     period: "Jul 2025 – Nov 2025",
     kind: "leadership",
     summary: "Led a 50+ member student organisation.",
@@ -184,7 +185,7 @@ export const projects: Project[] = [
     code: "https://github.com/rish0018/Movie-Recommendation-app",
   },
   {
-    title: "Kshitiz Kohli — Portfolio",
+    title: "Kshitiz Kohli's Portfolio",
     tier: "client",
     blurb: "Portfolio for Uber's APAC workforce-management leader.",
     details: ["Designed and built a personal portfolio for a strategic workforce leader at Uber."],

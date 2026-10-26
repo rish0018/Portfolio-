@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Download } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SnakeSection } from "../components/home/SnakeSection";
 import { MacWindow } from "../components/ui-kit/MacWindow";
 import { PhoneFrame } from "../components/ui-kit/PhoneFrame";
 import { experience, profile, projects, skillGroups } from "../data/portfolio";
@@ -18,11 +19,11 @@ const LAUNCHERS = [
     to: "/projects",
     index: "02",
     title: "Projects",
-    body: `${projects.length} things built — from RL tutors to client sites`,
+    body: `${projects.length} things built, from RL tutors to client sites`,
     span: "sm:col-span-2",
   },
   { to: "/skills", index: "03", title: "Skills", body: `${skillGroups.length} areas, 3 certifications`, span: "sm:col-span-1" },
-  { to: "/contact", index: "04", title: "Contact", body: "Say hi — I reply fast", span: "sm:col-span-1" },
+  { to: "/contact", index: "04", title: "Contact", body: "Say hi, I reply fast", span: "sm:col-span-1" },
 ];
 
 export default function Home() {
@@ -63,7 +64,7 @@ export default function Home() {
 
         <div className="relative mx-auto w-full max-w-lg pb-8 sm:min-h-[490px] sm:pb-0 lg:max-w-none">
           <div className="sm:absolute sm:inset-x-0 sm:top-[80px]">
-          <MacWindow title="~/rishit — zsh">
+          <MacWindow title="~/rishit (zsh)">
             <ul className="space-y-3 font-mono text-sm sm:pr-[190px]">
               {TERMINAL.map((row, i) => (
                 <motion.li
@@ -117,6 +118,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <SnakeSection />
 
       <section aria-label="Explore" className="mt-20">
         <p className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-sand">[ explore ]</p>

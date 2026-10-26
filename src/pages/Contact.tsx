@@ -1,6 +1,6 @@
 import { useRef, useState, type FormEvent } from "react";
 import emailjs from "@emailjs/browser";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Code2, Github, Linkedin, Mail } from "lucide-react";
 import { PageHeader } from "../components/layout/PageHeader";
 import { MacWindow } from "../components/ui-kit/MacWindow";
 import { profile } from "../data/portfolio";
@@ -45,6 +45,7 @@ export default function Contact() {
     { href: `mailto:${profile.email}`, label: "Email", icon: Mail },
     { href: profile.links.github, label: "GitHub", icon: Github },
     { href: profile.links.linkedin, label: "LinkedIn", icon: Linkedin },
+    { href: profile.links.leetcode, label: "LeetCode", icon: Code2 },
   ];
 
   return (
@@ -92,7 +93,7 @@ export default function Contact() {
                 {status.kind === "sending" ? "Sending…" : "Send message"}
               </button>
               <p role="status" aria-live="polite" className="text-sm">
-                {status.kind === "ok" && <span className="text-mint-300">Sent — thanks, I&apos;ll reply soon.</span>}
+                {status.kind === "ok" && <span className="text-mint-300">Sent. Thanks, I&apos;ll reply soon.</span>}
                 {status.kind === "error" && <span className="text-[#e0685c]">{status.message}</span>}
               </p>
             </div>

@@ -3,6 +3,7 @@ import { Briefcase, FolderKanban, Home, Mail, Wrench } from "lucide-react";
 import { Outlet, useLocation, useNavigate, Link } from "react-router-dom";
 import { Dock, DockIcon, DockItem, DockLabel } from "../ui-kit/Dock";
 import { TargetCursor } from "../ui-kit/TargetCursor";
+import ScrollProgress from "./ScrollProgress";
 import { cn } from "../../lib/utils";
 import { profile } from "../../data/portfolio";
 
@@ -32,6 +33,7 @@ export default function PageShell() {
         }}
       />
       <TargetCursor />
+      <ScrollProgress />
 
       <header className="relative z-20 mx-auto flex max-w-6xl items-center justify-between px-5 pt-6 sm:px-8">
         <Link to="/" className="cursor-target font-display text-lg font-semibold text-paper">

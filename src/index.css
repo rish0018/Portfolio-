@@ -92,8 +92,24 @@
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
+:root {
+  color-scheme: dark;
+}
+
 html {
   scroll-behavior: smooth;
+  /* Page scrollbar is replaced by <ScrollProgress />. */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Inner scrollers (chip list, card details) keep a thin dark scrollbar so overflow stays discoverable. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2a342e transparent;
 }
 
 body {
