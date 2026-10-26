@@ -73,406 +73,84 @@
 
 }
 
-/* 3D Animation Keyframes */
-@keyframes float3d {
-  0%, 100% {
-    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
-  }
-  25% {
-    transform: translateY(-10px) rotateX(5deg) rotateY(2deg);
-  }
-  50% {
-    transform: translateY(-20px) rotateX(0deg) rotateY(5deg);
-  }
-  75% {
-    transform: translateY(-10px) rotateX(-5deg) rotateY(-2deg);
+/* ---- Redesign tokens (dark, warm, Cappy-derived palette) ---- */
+@theme {
+  --color-ink-950: #0b100d;
+  --color-ink-900: #0f1411;
+  --color-ink-800: #171d19;
+  --color-ink-700: #1f2722;
+  --color-ink-600: #2a342e;
+  --color-cream: #f3e4d1;
+  --color-paper: #faf8f5;
+  --color-sand: #aa9c88;
+  --color-mint-300: #8ab8ae;
+  --color-mint-400: #5fa89c;
+  --color-mint-500: #3e948c;
+  --color-ember: #e8823c;
+  --font-display: "Poppins", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Page scrollbar is replaced by <ScrollProgress />. */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Inner scrollers (chip list, card details) keep a thin dark scrollbar so overflow stays discoverable. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2a342e transparent;
+}
+
+body {
+  background-color: #0f1411;
+  color: #f3e4d1;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Poppins", "Inter", system-ui, sans-serif;
+}
+
+/* Faint film grain so flat surfaces don't read as sterile gradients. */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-@keyframes tilt3d {
-  0%, 100% {
-    transform: rotateY(0deg) rotateX(0deg);
-  }
-  50% {
-    transform: rotateY(10deg) rotateX(5deg);
-  }
-}
-
-@keyframes card3d {
-  0% {
-    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px);
-  }
-  100% {
-    transform: perspective(1000px) rotateY(-15deg) rotateX(10deg) translateZ(50px);
-  }
-}
-
-@keyframes pulse3d {
-  0%, 100% {
-    transform: scale(1) rotateY(0deg);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  50% {
-    transform: scale(1.05) rotateY(5deg);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  }
-}
-
-@keyframes rotate3d {
-  0% {
-    transform: rotateY(0deg) rotateX(0deg);
-  }
-  100% {
-    transform: rotateY(360deg) rotateX(15deg);
-  }
-}
-
-/* 3D Animation Classes */
-.float-3d {
-  animation: float3d 6s ease-in-out infinite;
-}
-
-.tilt-3d {
-  animation: tilt3d 4s ease-in-out infinite;
-}
-
-.card-3d-hover {
-  transform-style: preserve-3d;
-  transition: transform 0.3s ease;
-}
-
-.card-3d-hover:hover {
-  animation: card3d 0.3s ease-out forwards;
-}
-
-.pulse-3d {
-  animation: pulse3d 3s ease-in-out infinite;
-}
-
-.rotate-3d {
-  animation: rotate3d 20s linear infinite;
-}
-
-.perspective-container {
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
-
-.transform-3d {
-  transform-style: preserve-3d;
-  transition: transform 0.3s ease;
-}
-
-.transform-3d:hover {
-  transform: rotateY(-10deg) rotateX(10deg) translateZ(20px);
-}
-
-/* New 3D Animation Keyframes */
-@keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px) rotateZ(0deg);
-  }
-  25% {
-    transform: translateY(-20px) translateX(10px) rotateZ(5deg);
-  }
-  50% {
-    transform: translateY(-40px) translateX(0px) rotateZ(0deg);
-  }
-  75% {
-    transform: translateY(-20px) translateX(-10px) rotateZ(-5deg);
-  }
-}
-
-@keyframes float-medium {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
-  }
-  50% {
-    transform: translateY(-30px) scale(1.1);
-  }
-}
-
-@keyframes float-fast {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px);
-  }
-  33% {
-    transform: translateY(-15px) translateX(15px);
-  }
-  66% {
-    transform: translateY(-30px) translateX(-15px);
-  }
-}
-
-@keyframes float-rotate {
-  0% {
-    transform: translateY(0px) rotate(45deg);
-  }
-  50% {
-    transform: translateY(-25px) rotate(225deg);
-  }
-  100% {
-    transform: translateY(0px) rotate(405deg);
-  }
-}
-
-@keyframes float-rotate-reverse {
-  0% {
-    transform: translateY(0px) rotate(45deg);
-  }
-  50% {
-    transform: translateY(-25px) rotate(-135deg);
-  }
-  100% {
-    transform: translateY(0px) rotate(-315deg);
-  }
-}
-
-@keyframes float-triangle {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-15px) rotate(90deg);
-  }
-  50% {
-    transform: translateY(-30px) rotate(180deg);
-  }
-  75% {
-    transform: translateY(-15px) rotate(270deg);
-  }
-}
-
-@keyframes float-triangle-reverse {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-25px) rotate(-180deg);
-  }
-}
-
-@keyframes pulse-3d-delayed {
-  0%, 100% {
-    transform: scale(1) rotateZ(0deg);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.2) rotateZ(180deg);
-    opacity: 0.8;
-  }
-}
-
-@keyframes grid-move-x {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes grid-move-y {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-
-@keyframes orb-float-1 {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-}
-
-@keyframes orb-float-2 {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  50% {
-    transform: translate(-40px, -30px) scale(1.2);
-  }
-}
-
-@keyframes orb-float-3 {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1) rotate(0deg);
-  }
-  25% {
-    transform: translate(25px, -25px) scale(1.1) rotate(90deg);
-  }
-  50% {
-    transform: translate(0px, -50px) scale(0.8) rotate(180deg);
-  }
-  75% {
-    transform: translate(-25px, -25px) scale(1.1) rotate(270deg);
-  }
-}
-
-@keyframes line-pulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scaleY(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scaleY(1.2);
-  }
-}
-
-@keyframes line-pulse-horizontal {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scaleX(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scaleX(1.2);
-  }
-}
-
-@keyframes ring-rotate {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.1);
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
-  }
-}
-
-@keyframes ring-rotate-reverse {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg);
-  }
-}
-
-@keyframes ring-rotate-slow {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
-  }
-}
-
-/* New 3D Animation Classes */
-.animate-float-slow {
-  animation: float-slow 8s ease-in-out infinite;
-}
-
-.animate-float-medium {
-  animation: float-medium 6s ease-in-out infinite;
-}
-
-.animate-float-fast {
-  animation: float-fast 4s ease-in-out infinite;
-}
-
-.animate-float-rotate {
-  animation: float-rotate 10s linear infinite;
-}
-
-.animate-float-rotate-reverse {
-  animation: float-rotate-reverse 12s linear infinite;
-}
-
-.animate-float-triangle {
-  animation: float-triangle 7s ease-in-out infinite;
-}
-
-.animate-float-triangle-reverse {
-  animation: float-triangle-reverse 9s ease-in-out infinite;
-}
-
-.animate-pulse-3d-delayed {
-  animation: pulse-3d-delayed 4s ease-in-out infinite 2s;
-}
-
-.animate-grid-move-x {
-  animation: grid-move-x 20s linear infinite;
-}
-/* Override potential vertical lines */
-*:after, *:before {
-  border-right: none !important;
-  border-left: none !important;
-  background: transparent !important;
-}
-
-/* Target potential divider elements */
-.divider, [class*="divider"], [class*="separator"], [class*="line"] {
-  display: none !important;
-}
-.animate-grid-move-y {
-  animation: grid-move-y 25s linear infinite;
-}
-
-.animate-orb-float-1 {
-  animation: orb-float-1 15s ease-in-out infinite;
-}
-
-.animate-orb-float-2 {
-  animation: orb-float-2 18s ease-in-out infinite 5s;
-}
-
-.animate-orb-float-3 {
-  animation: orb-float-3 12s ease-in-out infinite 3s;
-}
-
-.animate-line-pulse {
-  animation: line-pulse 3s ease-in-out infinite;
-}
-
-.animate-line-pulse-horizontal {
-  animation: line-pulse-horizontal 4s ease-in-out infinite 1s;
-}
-
-.animate-ring-rotate {
-  animation: ring-rotate 20s linear infinite;
-}
-
-.animate-ring-rotate-reverse {
-  animation: ring-rotate-reverse 25s linear infinite;
-}
-
-.animate-ring-rotate-slow {
-  animation: ring-rotate-slow 30s linear infinite;
-}
-
-/* 3D Transform Utilities */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.preserve-3d {
-  transform-style: preserve-3d;
-}
-
-.rotate-y-12 {
-  transform: rotateY(12deg);
-}
-
-.rotate-x-6 {
-  transform: rotateX(6deg);
-}
-
-.translate-z-4 {
-  transform: translateZ(4px);
-}
-
-.translate-z-8 {
-  transform: translateZ(8px);
-}
+/* ---- Blog code highlighting (highlight.js classes, palette colors) ---- */
+.hljs { color: #f3e4d1; background: transparent; }
+.hljs-comment, .hljs-quote { color: #877a68; font-style: italic; }
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-built_in { color: #e8823c; }
+.hljs-string, .hljs-regexp, .hljs-addition { color: #8ab8ae; }
+.hljs-number, .hljs-symbol, .hljs-bullet { color: #d9aa78; }
+.hljs-title, .hljs-section, .hljs-function .hljs-title { color: #5fa89c; }
+.hljs-attr, .hljs-attribute, .hljs-variable, .hljs-template-variable { color: #f3e4d1; }
+.hljs-type, .hljs-class .hljs-title { color: #8ab8ae; }
+.hljs-meta, .hljs-deletion { color: #c25b52; }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 600; }

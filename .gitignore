@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code / dn-skills (never commit)
+.claude/
+CLAUDE.md
+MEMORY.md
+0-cowork/
+.dn-modes
+
+# Secrets
+.env
+.env.*
+!.env.example
