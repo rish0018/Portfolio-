@@ -194,6 +194,19 @@ export const projects: Project[] = [
     live: "https://kshitiz-kohli-portfolio.vercel.app",
   },
   {
+    title: "Shaswat Kumar's Portfolio",
+    tier: "client",
+    blurb: "An immersive portfolio for a software engineer, built as a 3D fish tank.",
+    details: [
+      "Non-linear 3D portfolio: projects, skills, education and contact each live in their own zone of the tank.",
+      "Plain non-3D view with the same content, used automatically when WebGL isn't available, plus keyboard navigation and a reduced-motion option.",
+      "3D code is lazy loaded; deployed on Netlify with an EmailJS contact form.",
+    ],
+    stack: ["TypeScript", "React", "three.js", "Vite"],
+    code: "https://github.com/rish0018/shaswat-portfolio",
+    live: "https://portfolio-shaswat.netlify.app",
+  },
+  {
     title: "Maison des Compagnes",
     tier: "client",
     blurb: "A website built for a friend's business.",
