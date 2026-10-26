@@ -9,6 +9,7 @@ Live: https://github.com/rish0018/Portfolio-
 - React 19 + TypeScript
 - Vite 6
 - Tailwind CSS 4
+- Framer Motion + GSAP (page transitions, dock, cursor)
 - Radix UI / shadcn-style components (`src/components/ui`)
 - React Router 7
 - EmailJS (contact form)
@@ -70,14 +71,16 @@ Open the URL Vite prints (usually http://localhost:5173).
 ```
 src/
   main.tsx                    App bootstrap
-  App.tsx                     Routes: / → Index, * → NotFound
-  pages/                      Index (home), NotFound
-  components/portfolio/       Page sections: Hero, About, Experience,
-                              Skills, Projects, Contact, Navigation
-  components/ui/              Shared UI primitives
-  hooks/, lib/, types/        Helpers and typings
-public/                       Static assets
+  App.tsx                     Routes: / /work /projects /skills /contact, * → NotFound
+  data/portfolio.ts           All content (experience, projects, skills, links) — edit here
+  pages/                      Home, Work, Projects, Skills, Contact, NotFound
+  components/layout/          PageShell (dock nav, page transitions), PageHeader
+  components/ui-kit/          MacWindow, PhoneFrame, Dock, TargetCursor, RevealCard
+  components/ui/              shadcn-style primitives
+public/                       Static assets, resume PDF
 ```
+
+To update the site's content, edit `src/data/portfolio.ts`. To replace the resume, overwrite `public/Rishit_Kohli_Resume.pdf`.
 
 ## Deployment
 
