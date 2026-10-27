@@ -222,7 +222,7 @@ export const projects: Project[] = [
     details: ["A site that turns a CSV of questions into an interactive MCQ quiz."],
     stack: ["HTML", "JavaScript"],
     code: "https://github.com/rish0018/STS---2-MCQ-questions-",
-    live: "https://sts-2-mcq-questions.vercel.app",
+    live: "https://sts-2-mcq-questions-s7uklql8o-rishits-projects-86bc8242.vercel.app/",
   },
   {
     title: "Chatbot with LangChain",
