@@ -194,8 +194,11 @@ export const projects: Project[] = [
     live: "https://kshitiz-kohli.vercel.app/",
   },
   {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> 77444bc50bb726c5f44f779d947cf22275878563
     title: "Shaswat Kumar's Portfolio",
     tier: "client",
     blurb: "An immersive portfolio for a software engineer, built as a 3D fish tank.",
@@ -206,10 +209,16 @@ export const projects: Project[] = [
     ],
     stack: ["TypeScript", "React", "three.js", "Vite"],
     code: "https://github.com/rish0018/shaswat-portfolio",
+<<<<<<< HEAD
     live: "https://portfolio-shaswat.netlify.app/",
   },
   {
 >>>>>>> Stashed changes
+=======
+    live: "https://portfolio-shaswat.netlify.app",
+  },
+  {
+>>>>>>> 77444bc50bb726c5f44f779d947cf22275878563
     title: "Maison des Compagnes",
     tier: "client",
     blurb: "A website built for a friend's business.",
