@@ -191,16 +191,32 @@ export const projects: Project[] = [
     details: ["Designed and built a personal portfolio for a strategic workforce leader at Uber."],
     stack: ["TypeScript", "React"],
     code: "https://github.com/rish0018/kshitiz-kohli-portfolio",
-    live: "https://kshitiz-kohli-portfolio.vercel.app",
+    live: "https://kshitiz-kohli.vercel.app/",
   },
   {
+<<<<<<< Updated upstream
+=======
+    title: "Shaswat Kumar's Portfolio",
+    tier: "client",
+    blurb: "An immersive portfolio for a software engineer, built as a 3D fish tank.",
+    details: [
+      "Non-linear 3D portfolio: projects, skills, education and contact each live in their own zone of the tank.",
+      "Plain non-3D view with the same content, used automatically when WebGL isn't available, plus keyboard navigation and a reduced-motion option.",
+      "3D code is lazy loaded; deployed on Netlify with an EmailJS contact form.",
+    ],
+    stack: ["TypeScript", "React", "three.js", "Vite"],
+    code: "https://github.com/rish0018/shaswat-portfolio",
+    live: "https://portfolio-shaswat.netlify.app/",
+  },
+  {
+>>>>>>> Stashed changes
     title: "Maison des Compagnes",
     tier: "client",
     blurb: "A website built for a friend's business.",
     details: ["Designed and shipped a live website, deployed on Vercel."],
     stack: ["TypeScript", "React"],
     code: "https://github.com/rish0018/maison-des-compagnes",
-    live: "https://maison-des-compagnes.vercel.app",
+    live: "https://maison-des-compagnes.vercel.app/",
   },
   {
     title: "STS MCQ Practice",
@@ -266,6 +282,7 @@ export const projects: Project[] = [
     details: [],
     stack: ["JavaScript", "TensorFlow"],
     code: "https://github.com/rish0018/Chrome-Games",
+    live: "https://chrome-games.netlify.app/",
   },
 ];
 
